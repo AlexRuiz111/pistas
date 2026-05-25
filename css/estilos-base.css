@@ -63,8 +63,8 @@ body {
     padding-bottom: 5px; 
 }
 
-/* Contenedor main que envuelve todo el contenido entre el nav y el footer. */
-.caja-principal {
+/* Contenedor que envuelve todo el contenido entre el nav y el footer. */
+main {
     width: 100%;
     max-width: 1200px; /* Limita el ancho maximo para que no se estire de mas*/
     margin: 0 auto;    
@@ -111,7 +111,7 @@ body {
     text-align: center; 
 }
 
-.imagen-complejo { 
+.imagen { 
     width: 100%; 
     max-height: 532px; 
     object-fit: cover; /* Permite que el contenido de la imagen sea estatico. */
