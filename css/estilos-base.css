@@ -1,0 +1,302 @@
+/* Afecta a todas las etiquetas html.*/
+* { 
+    margin: 0; /* Borra los margenes y espacios por defecto de los navegadores.*/
+    padding: 0; 
+    box-sizing: border-box; /* Hace que el padding y el borde se calculen dentro del ancho de la caja, evitando que se desborde */
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* Contenedor principal visible de la página.*/
+body { 
+    background-color: #0d0f0d; 
+    color: #e0e0e0; 
+    line-height: 1.6; /* Margen predeterminado entre linea y linea.*/ 
+    display: flex; /*Activa flexbox*/
+    flex-direction: column; /* Apila por defecto en filas */
+    min-height: 100vh; /* vh: alto de la ventana. */
+}
+
+/* Header, ocupa toda la parte superior de la pagina.*/
+.cabecera { 
+    background-color: #151a15; 
+    border-bottom: 5px solid #27ae60; /* Borde verde inferior.*/
+    padding: 20px 0; /* El 0 indica que no tiene espacios a los lados. */ 
+    position: sticky; /* Posiciona la cabezera fija para pdoer scrolear.*/
+    top: 0; 
+    box-shadow: 0 0 50px rgba(15, 224, 102, 0.2);
+}
+
+/* Div que se ocupa de logo y del nav */
+.contenedor { 
+    max-width: 1200px; 
+    margin: 0 auto; /* 0 Arriba/Abajo auto Izq/Drch */
+    padding: 0 20px; 
+    display: flex;               
+    align-items: center;
+}
+
+.logo { 
+    font-size: 28px; 
+    font-weight: bold; 
+    color: #ffffff; 
+    text-shadow: 0 0 15px #27ae60; 
+}
+
+ /* Contenedor del nav */
+.menu {
+    margin-left: auto; /* Da margen automaticamente a todo el espacio izquierdo disponible. */
+}
+
+/* Afecta a los enlaces individualmente. */
+.menu a { 
+    color: #bbbbbb; 
+    text-decoration: none; 
+    margin-left: 25px; /* Pequeño margen entre enlaces. */
+    font-weight: bold; /* Negrita */
+    transition: 0.3s; 
+}
+
+/* Afecta si tienes el cursor encima o estas en dicha pagina. */
+.menu a:hover, .pagina-activa { 
+    color: #27ae60; 
+    border-bottom: 2px solid #27ae60; 
+    padding-bottom: 5px; 
+}
+
+/* Contenedor main que envuelve todo el contenido entre el nav y el footer. */
+.caja-principal {
+    width: 100%;
+    max-width: 1200px; /* Limita el ancho maximo para que no se estire de mas*/
+    margin: 0 auto;    
+    padding: 40px 20px;
+}
+
+/* Contiene los bloques de texto y los formularios de manera general. */
+.contenedor-principal { 
+    display: flex; 
+    gap: 50px; 
+    align-items: stretch; /* Hace que ambas columnas dentro del contenedor tengan la misma altura */
+} 
+
+/* Contiene los bloques de texto y los formularios de manera mas especifica, IZQ y DRCH. */
+.seccion-izquierda { 
+    flex: 1.5; /* Define la proporcion de anchura un 60% de la pagina aprox */
+    display: flex; 
+    flex-direction: column; /* Coloca los elementos en su interior por lineas.*/
+}
+
+.seccion-derecha { 
+    flex: 1.2; /* El otro 40%. */
+}
+
+/* Cofiguarcion de las tartejas individualmente (bloques de información) */
+.bloque-info { 
+    background: #1a1f1a; 
+    padding: 30px; 
+    border-radius: 15px; 
+    margin-bottom: 30px; 
+    border-left: 5px solid #27ae60;
+}
+ 
+.titulo-bienvenida { 
+    font-size: 45px; 
+    margin-bottom: 45px; 
+    color: #ffffff; 
+    text-align: center; 
+}
+
+.titulo-seccion {
+    margin-bottom: 45px; 
+    color: #ffffff;
+    text-align: center; 
+}
+
+.imagen-complejo { 
+    width: 100%; 
+    max-height: 532px; 
+    object-fit: cover; /* Permite que el contenido de la imagen sea estatico. */
+    border-radius: 15px; 
+    border: 1px solid #27ae60; 
+}
+
+/* Afecta al titulo de los campos de escritura. */
+.campo label { 
+    display: block; 
+    margin-bottom: 8px; 
+    color: #27ae60; 
+    font-weight: bold; 
+}
+
+.campo input, .campo select { 
+    width: 100%; 
+    padding: 12px; 
+    background: #0d0f0d; 
+    border: 1px solid #333; 
+    color: white; 
+    border-radius: 5px; 
+}
+
+.boton { 
+    background: #27ae60;
+    color: white; 
+    padding: 15px 30px; 
+    border-radius: 5px; 
+    font-weight: bold; 
+    text-decoration: none; 
+    display: inline-block; /* Permite al botón tener tamaño, márgenes y padding (como un bloque) pero sin ocupar todo el ancho de la pantalla (como un texto) */
+    margin-top: 20px; 
+}
+
+table { 
+    width: 100%; 
+    max-width: 800px;  
+    margin: 40px auto; 
+    border-collapse: collapse; /* Fusiona las celdas, elimina las lineas. */
+    background: #151a15; 
+    font-size: 18px;   
+    box-shadow: 0 0 30px rgba(39, 174, 96, 0.1);
+}
+
+th { 
+    background: #27ae60; 
+    color: white; 
+    padding: 20px; 
+    font-size: 18px;
+}
+
+td { 
+    padding: 20px; 
+    border-bottom: 1px solid #2d362d; 
+    text-align: center; 
+}
+
+.ocupada { 
+    color: #ff4d4d; 
+    font-weight: bold; 
+}
+
+table .boton {
+    margin-top: 0; 
+    padding: 10px 20px;
+}
+
+.contenedor-ticket {
+    max-width: 550px;
+    margin: 60px auto; 
+    text-align: center; 
+}
+
+.contenedor-ticket .bloque-info {
+    text-align: left; 
+    margin-top: 25px;
+}
+
+footer { 
+    background-color: #151a15; 
+    border-top: 2px solid #27ae60; 
+    padding: 40px 0; 
+    margin-top: auto; 
+} 
+
+.contenedor-footer { 
+    max-width: 1100px; 
+    margin: 0 auto; 
+    padding: 0 20px; 
+    display: flex; 
+    justify-content: space-between; 
+}
+
+.copyright { 
+    text-align: center; 
+    padding-top: 20px; 
+    font-size: 13px; 
+    color: #666; 
+    border-top: 1px solid #232a23; 
+    margin-top: 20px; 
+}
+
+@media (max-width: 1000px) {
+    
+    .caja-principal { 
+        padding: 20px 15px; 
+    }
+
+    .contenedor {
+        flex-direction: column;      
+        gap: 15px;
+        justify-content: center;
+    }
+
+    .logo { 
+        text-align: center; 
+        font-size: 50px;
+    }
+
+    .menu { 
+        margin-left: 0;
+        display: flex; 
+        justify-content: center; 
+        flex-wrap: wrap; /* Se apila por filsa en funcion de lo que quepa */ 
+        gap: 10px; 
+    }
+    .menu a { 
+        margin-left: 0; 
+        padding: 5px 10px; 
+        font-size: 14px; 
+    }
+
+    .contenedor-principal { 
+        flex-direction: column; 
+        gap: 25px; 
+    }
+
+    .seccion-derecha { 
+        width: 100%; 
+    } 
+
+    .imagen-complejo { 
+        height: 250px; 
+    } 
+
+    .contenedor-bloques-fila { 
+        flex-direction: column; 
+        align-items: center;
+        gap: 20px; 
+    }
+
+    .contenedor-bloques-fila .bloque-info { 
+        width: 100%;
+        max-width: 100%;
+        margin-bottom: 0; 
+    }
+
+    .campo input, .campo select { 
+        max-width: 100%; 
+        
+    }
+
+    table { 
+        font-size: 14px; 
+        max-width: 100%;
+    }
+
+    th, td { 
+        padding: 10px 5px; 
+    }
+
+    table .boton {
+        padding: 8px 12px;
+        font-size: 12px;
+    }
+
+    .contenedor-footer { 
+        flex-direction: column; 
+        gap: 30px; 
+        text-align: center; 
+    }
+
+    .contenedor-footer ul { 
+        list-style: none; 
+        padding: 0; 
+    }
+}
