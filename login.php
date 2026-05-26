@@ -1,3 +1,34 @@
+<?php 
+    $mensaje = "";
+    if (isset($_POST['nombre'])) {
+        $pdo = new PDO("mysql:host=localhost;dbname=pistas;charset=utf8", "root", "");
+        
+        $usuario = $_POST['nombre'];
+        $password = $_POST['password'];
+
+        try {
+            $sql = "SELECT nombre, password from usuarios where nombre = :nombre and password = :password";
+            $stmt = $pdo->prepare($sql);
+            $stmt->execute([
+                'nombre'   => $usuario,
+                'password' => $password
+            ]);
+
+            $user_info = $stmt->fetch(PDO::FETCH_ASSOC);
+
+            if ($user_info) {
+                header("Location: principal.html");
+            } else {
+                $mensaje = "Error: El usuario o la contraseña no son correctos.";
+            }
+
+        } catch (PDOException $e) {
+            $mensaje = "Error en la conexión: " . $e->getMessage();
+        }
+    }
+
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -20,10 +51,11 @@
         <div class="bloque-formularios">
             <div class="caja-principal">
                 <h2 class="titulo-seccion">INICIAR SESIÓN</h2>
-                <form>
-                    <div class="campo"><label>Email / Usuario</label><input type="text"></div>
-                    <div class="campo"><label>Contraseña</label><input type="password"></div>
-                    <a href="principal.html" class="boton">ENTRAR</a>
+                <?php echo $mensaje; ?>
+                <form method="POST">
+                    <div class="campo"><label>Nombre de Usuario</label><input type="text" name="nombre" required></div>
+                    <div class="campo"><label>Contraseña</label><input type="password" name="password" required></div>
+                    <input class="boton" type="submit" value="ENTRAR">
                     <a href="recuperar.php" class="boton">RECUPERAR CONTRASERÑA</a>
                 </form>
             </div>

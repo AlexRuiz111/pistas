@@ -1,7 +1,6 @@
 <?php
     $mensaje = "";
-
-    if (isset($_POST['usuario'])) {
+    if (isset($_POST['nombre'])) {
         $pdo = new PDO("mysql:host=localhost;dbname=pistas;charset=utf8", "root", "");
     
         $password = $_POST['password'];
@@ -30,15 +29,15 @@
                 $sql = "INSERT INTO usuarios (nombre, email, password) VALUES (:nombre, :email, :password)";
                 $stmt = $pdo->prepare($sql);
                 $stmt->execute([
-                    'nombre'   => $_POST['usuario'],
+                    'nombre'   => $_POST['nombre'],
                     'email'    => $_POST['email'],
                     'password' => $password
                 ]);
 
-                echo $mensaje = "¡Contraseña perfecta! Usuario registrado con éxito.";
-
+                $mensaje = "Usuario registrado con éxito.";
+                    
             } catch (PDOException $e) {
-                echo $mensaje = "Error: El usuario o el email ya están registrados.";
+                $mensaje = "El usuario o correo ya existen";
             }
         }
     }
@@ -67,7 +66,7 @@
             <div class="caja-principal">
                 <h2 class="titulo-seccion">CREAR CUENTA</h2>
                 <form method="POST">
-                    <div class="campo"><label>Nombre Usuario</label><input type="text" name="nombre" required></div>
+                    <div class="campo"><label>Nombre de Usuario</label><input type="text" name="nombre" required></div>
                     <div class="campo"><label>Email</label><input type="email" placeholder="ejemplo@ejemplo.com" name="email" required></div>
                     <div class="campo"><label>Password</label><input type="password" name="password" required></div>
                     <input class="boton" type="submit" value="CREAR USUARIO">
