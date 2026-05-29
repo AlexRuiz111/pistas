@@ -1,4 +1,7 @@
 <?php 
+    // 1. OBLIGATORIO: session_start() tiene que ser SIEMPRE la línea 1 de tu login
+    session_start(); 
+    
     $mensaje = "";
     if (isset($_POST['nombre'])) {
         $pdo = new PDO("mysql:host=localhost;dbname=pistas;charset=utf8", "root", "");
@@ -13,11 +16,22 @@
                 'nombre'   => $usuario,
                 'password' => $password
             ]);
-
+            
+            if ($usuario == "Admin" && $password == "1234Admin") {
+                $_SESSION['usuario_logeado'] = $usuario;
+                header("Location: admin.php");   
+                exit;
+            }
+        
             $user_info = $stmt->fetch(PDO::FETCH_ASSOC);
 
             if ($user_info) {
-                header("Location: principal.html");
+                // 2. CORREGIDO: Guardamos el usuario en la sesión ANTES de cambiar de página
+                $_SESSION['usuario_logeado'] = $usuario; 
+
+                // 3. Redirigimos a la página principal una vez guardado el dato
+                header("Location: principal.php");
+                exit;
             } else {
                 $mensaje = "Error: El usuario o la contraseña no son correctos.";
             }
@@ -26,7 +40,6 @@
             $mensaje = "Error en la conexión: " . $e->getMessage();
         }
     }
-
 ?>
 
 <!DOCTYPE html>

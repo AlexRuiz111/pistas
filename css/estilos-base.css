@@ -85,6 +85,21 @@ main {
     flex-direction: column; /* Coloca los elementos en su interior por lineas.*/
 }
 
+.columna-deporte {
+    display: flex;
+    flex-direction: column;
+}
+
+.columna-deporte h3 {
+    margin-bottom: 20px;
+}
+
+.columna-deporte .boton {
+    margin-top: auto;
+    align-self: flex-start;
+}
+
+
 #torneos-izquierda { 
     flex: 1.4; 
     display: flex; 
@@ -114,6 +129,30 @@ main {
     border-radius: 15px; 
     margin: 30px 300px; 
     border-left: 5px solid #27ae60;
+    max-width: 450px;
+    margin: 40px auto;
+}
+
+.bloque-formularios .boton[type="submit"] {
+    width: 100%;
+    cursor: pointer; /* puntero */
+    margin-top: 10px;
+}
+
+.bloque-formularios a.boton {
+    background: transparent;      
+    display: block; /* Para que sea fila única */
+    text-align: center;           
+    margin-top: 25px;
+    color: #27ae60;
+    font-size: 14px;
+    font-weight: normal;
+    padding: 0;
+}
+
+.bloque-formularios a.boton:hover {
+    color:#000000;
+    background-color:#27ae60;
 }
  
 .titulo-bienvenida { 
@@ -135,6 +174,10 @@ main {
     object-fit: cover; /* Permite que el contenido de la imagen sea estatico. */
     border-radius: 15px; 
     border: 1px solid #27ae60; 
+}
+
+.campo {
+    margin-bottom: 20px;
 }
 
 /* Afecta al titulo de los campos de escritura. */
@@ -161,9 +204,13 @@ main {
     border-radius: 5px; 
     font-weight: bold; 
     text-decoration: none; 
-    display: inline-block; /* Permite al botón tener tamaño, márgenes y padding (como un bloque) pero sin ocupar todo el ancho de la pantalla (como un texto) */
+    display: inline-block; /* Permite al botón tener tamaño, márgenes y padding (comportamiento de bloque) pero sin ocupar todo el ancho de la pantalla (como un texto) */
     margin-top: 20px; 
-     
+}
+
+.seccion-izquierda .boton {
+    margin-top: auto;
+    align-self: flex-start;  /* Evita que se estire a lo ancho */
 }
 
 .boton:hover {
@@ -282,6 +329,11 @@ footer {
     .seccion-derecha { 
         width: 100%; 
     } 
+
+    .columna-deporte .boton {
+        margin-bottom: 20px; 
+        margin-top: 20px; /* Por si también quieres separarlo un poco del texto */
+    }
 
     .contenedor-bloques-fila { 
         flex-direction: column; 
